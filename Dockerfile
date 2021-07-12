@@ -49,4 +49,4 @@ RUN npm install -g grunt-cli
 
 EXPOSE 80
 
-CMD ["sh", "-c", "/var/lib/monarc/fo/scripts/update-all.sh -c; apache2-foreground"]
+CMD ["sh", "-c", "/var/lib/monarc/fo/scripts/update-all.sh -c; sed -i 's#git+ssh://git@#https://#g' node_modules/ng_client/package-lock.json; /var/lib/monarc/fo/scripts/update-all.sh -c; apache2-foreground"]
